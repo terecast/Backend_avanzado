@@ -8,10 +8,10 @@ const { celebrateValidator } = require('../middlewares/celebrateValidator')
 const router = Router()
 
 
-router.post("/", celebrateValidator , createUser)// C creat
-router.get("/", readUser) // R read
-router.put("/:userId", updateUser) // U Update
-router.delete("/:userId", deleteUser) // D delete
+router.post("/user", celebrateValidator , createUser)// C creat
+router.get("/user", readUser) // R read
+router.put("/user/:userId", updateUser) // U Update
+router.delete("/user/:userId", deleteUser) // D delete
 
 
 

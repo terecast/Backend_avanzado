@@ -8,7 +8,7 @@ class Server {
         this.app = express()
         this.port = process.env.PORT || 3001
         this.database = new Database()
-        this.userPath = '/api/usuarios'
+        this.userPath = '/api'
 
         //Middleware
         this.middlewares()
@@ -34,6 +34,8 @@ class Server {
 
     router(){
         this.app.use(this.userPath, require('./routes/users.routes'), errors())
+        this.app.use(this.userPath, require('./routes/product.routes'), errors())
+
     }
 
 

@@ -4,7 +4,7 @@ function validatePost (schema){
 
         if(error){
             return res.status(403).json({
-                msg: error.datails[0].message
+                msg: error.details[0].message
             })
         }
         next()
@@ -13,4 +13,17 @@ function validatePost (schema){
 
 }
 
-module.exports = { validatePost }
+function validateProductCreated (productschema){
+    return (req, res, next) => {
+        const { error } = productschema.validate(req.body)
+
+        if(error){
+            return res.status(403).json({
+                msg: error.details
+            })
+        }
+        next()
+    }
+}
+
+module.exports = { validatePost, validateProductCreated }
