@@ -15,3 +15,4 @@ database.dbConnection
 const replServer = repl.start()
 replServer.context.saludar = saludar
 replServer.context.saludar = User
+replServer.context.db = database

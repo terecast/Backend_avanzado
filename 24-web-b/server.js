@@ -35,6 +35,8 @@ class Server {
     router(){
         this.app.use(this.userPath, require('./routes/users.routes'), errors())
         this.app.use(this.userPath, require('./routes/product.routes'), errors())
+        this.app.use(this.userPath, require('./routes/services.routes'));
+        this.app.use(this.userPath, require('./routes/register.routes'));
 
     }
 
