@@ -8,7 +8,11 @@ class Server {
         this.app = express()
         this.port = process.env.PORT || 3001
         this.database = new Database()
-        this.userPath = '/api'
+        this.usersPath = '/api/users'
+        this.servicePath = '/api/services'
+        this.registerPath = '/api/auth'
+        this.productPath = '/api/product'
+        this.purchasePath = '/api/purchase'
 
         //Middleware
         this.middlewares()
@@ -33,10 +37,11 @@ class Server {
     }
 
     router(){
-        this.app.use(this.userPath, require('./routes/users.routes'), errors())
-        this.app.use(this.userPath, require('./routes/product.routes'), errors())
-        this.app.use(this.userPath, require('./routes/services.routes'));
-        this.app.use(this.userPath, require('./routes/register.routes'));
+        this.app.use(this.usersPath, require('./routes/users.routes'), errors())
+        this.app.use(this.productPath, require('./routes/product.routes'), errors())
+        this.app.use(this.servicePath, require('./routes/services.routes'));
+        this.app.use(this.registerPath, require('./routes/register.routes'));
+        this.app.use(this.purchasePath, require('./routes/purchase.routes'));
 
     }
 

@@ -45,6 +45,9 @@ const loginUser = async (req, res) => {
         })
     }
     const correctPassword = bcrypt.compareSync(password, user.password)
+    console.log(correctPassword)
+    console.log(user.password)
+
     if(correctPassword) {
         const token = jwt.sign({ id: user._id, userName: user.userName}, "cambiame-por-algo-seguro")
 

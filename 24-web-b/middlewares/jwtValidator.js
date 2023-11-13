@@ -20,6 +20,7 @@ const validateToken = (secret) => {
     }
 }
 
+
 module.exports = { 
     validateToken 
 }
