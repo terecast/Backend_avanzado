@@ -11,9 +11,9 @@ const productschema = Joi.object().keys({
         "string.max": "El nombre del prodcuto debe tener un maximo de {#limit} caracteres"
 
     }),
-    unit: Joi.string().min(1).max(10).required().messages({
-        "string.min": "El minimo de {#limit} numeros debe ser 1"
-    })
+    unit: Joi.string().min(1).max(10),
+
+    price: Joi.number()
     
 })
 

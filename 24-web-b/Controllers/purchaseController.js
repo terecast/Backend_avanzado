@@ -28,15 +28,18 @@ const createPurchase = async (req, res) => {
 
           const { authorization } = req.headers
           token = authorization.split(" ")[1]
-          console.log(token)
+         
           const payload = jwt.verify(token, "cambiame-por-algo-seguro")
+          console.log(payload)
           const isAdmin = payload.userName === "Pablito"
+        
+          let orderList 
+          
 
           if(!isAdmin){
-                queryParam.userName = payload.userName
+            orderList = await Purchase.find({userName:payload.id}).populate(["userName","productName"]);
           }
-          console.log(queryParam);
-          const orderList = await Purchase.find(queryParam);
+          orderList = await Purchase.find(queryParam).populate(["userName","productName"]);
 
 
           res.status(200).json({

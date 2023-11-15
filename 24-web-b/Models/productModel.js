@@ -11,6 +11,9 @@ const ProductSchema = Schema({
         required: [true, 'La descripcion es requerido'],
         unique: true
     },
+    price:{
+        type: Number,
+    },
     unit:{
         type: String,
     },

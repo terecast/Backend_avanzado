@@ -3,15 +3,15 @@ const {Schema, model} = require('mongoose')
 
 const PurchaseSchema = Schema({
     userName:{
-        type: String,
-        required: true
-       
+        type: Schema.Types.ObjectId,
+        ref:'User'
+
+
     },
-   
     productName:{
-        type: String,
-        required: true
-        
+        type: Schema.Types.ObjectId,
+        ref:'Product'
+       
     },
    
     purchasedPcs:{
