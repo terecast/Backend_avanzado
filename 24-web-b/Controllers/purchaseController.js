@@ -46,7 +46,7 @@ const createPurchase = async (req, res) => {
             orderList})
         } catch (error) {
           res.status(500).json({
-            message:'Algo Ocurrio al listar las ordenes',
+            message:'Algo Ocurrio al listar las ordeneS',
           })
         }
         
