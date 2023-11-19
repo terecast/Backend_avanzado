@@ -9,7 +9,7 @@ const { validateToken } = require('../middlewares/jwtValidator')
 
 const router = Router()
 
-router.post('/register', registerUser) // C Create
+router.post('/register',registerUser) // C Create
 router.post('/login', loginUser)
 router.get("/", readUser) // R read
 router.put("/:userId", updateUser) // U Update

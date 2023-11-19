@@ -30,7 +30,6 @@ const createPurchase = async (req, res) => {
           token = authorization.split(" ")[1]
          
           const payload = jwt.verify(token, "cambiame-por-algo-seguro")
-          console.log(payload)
           const isAdmin = payload.userName === "Pablito"
         
           let orderList 
@@ -38,14 +37,13 @@ const createPurchase = async (req, res) => {
 
           if(!isAdmin){
             orderList = await Purchase.find({userName:payload.id}).populate(["userName","productName"]);
+          }else{
+            orderList = await Purchase.find(queryParam).populate(["userName","productName"]);
           }
-          orderList = await Purchase.find(queryParam).populate(["userName","productName"]);
-
 
           res.status(200).json({
             total: numeroDeOrdenes,
-            orderList
-          })
+            orderList})
         } catch (error) {
           res.status(500).json({
             message:'Algo Ocurrio al listar las ordenes',

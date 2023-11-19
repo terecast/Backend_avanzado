@@ -18,6 +18,7 @@ const UserSchema = Schema({
         type:String,
         required: [true, 'El Pass es requerido']
     },
+    
     active:{
         type: Boolean,
         default: true

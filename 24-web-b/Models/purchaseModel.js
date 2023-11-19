@@ -18,6 +18,9 @@ const PurchaseSchema = Schema({
         type: Number,
         required: true
     },
+
+
+   
     active:{
         type: Boolean,
         default: true
